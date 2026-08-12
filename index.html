@@ -80,20 +80,23 @@
     }
     h1 em{font-style:italic;font-weight:400;color:var(--gold)}
     .hero p{color:var(--muted);max-width:600px;margin:.9rem auto 0;font-size:.88rem;font-weight:300}
-    .wrap{max-width:1140px;margin:0 auto;padding:2.2rem 1.25rem 3rem}
+    .wrap{max-width:1140px;margin:0 auto;padding:2.2rem 1.25rem 2rem}
     .grid{
       display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
       gap:1.25rem
     }
     /* Custom scroll: thin gold track + pearl knob (cards area only) */
-    .scroll-wrap{flex:1 1 auto;min-height:0;position:relative;overflow:hidden}
+    .scroll-wrap{
+      flex:1 1 auto;min-height:0;position:relative;overflow:hidden;
+      width:100%;max-width:1140px;margin:0 auto
+    }
     .cards-scroll{
       height:100%;overflow-y:auto;overflow-x:hidden;
       scrollbar-width:none;-ms-overflow-style:none
     }
     .cards-scroll::-webkit-scrollbar{display:none}
     .pearl-track{
-      position:absolute;top:.5rem;right:.45rem;bottom:.5rem;width:2px;
+      position:absolute;top:.5rem;right:.6rem;bottom:.5rem;width:2px;
       background:var(--line);border-radius:99px;opacity:0;transition:opacity .3s
     }
     .pearl-track.show{opacity:1}
@@ -132,7 +135,7 @@
     .card.soon h3{color:var(--muted)}
     .card.soon .go{color:var(--gold-soft)}
     footer{
-      text-align:center;padding:2rem 1rem;border-top:1px solid var(--line);
+      flex:0 0 auto;text-align:center;padding:1.5rem 1rem;border-top:1px solid var(--line);
       font-size:.66rem;letter-spacing:.32em;text-transform:uppercase;color:var(--muted)
     }
     footer .dot{display:inline-block;width:8px;height:8px;vertical-align:middle;margin:0 .2rem}
@@ -211,10 +214,10 @@
       </div>
         </div>
       </div>
-      <footer>© MMXXVI · CC <span class="dot pearl"></span> SU007</footer>
     </div>
     <div class="pearl-track"><span class="pearl-knob"></span></div>
   </main>
+  <footer>© MMXXVI · CC <span class="dot pearl"></span> SU007</footer>
 
   <script>
     (function () {
