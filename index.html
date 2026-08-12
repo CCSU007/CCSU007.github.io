@@ -3,104 +3,127 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CC's Projects · 项目集</title>
+  <title>CC · Portfolio — Projects</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     :root{
-      --indigo:#6366f1;--purple:#a78bfa;--ink:#0f172a;--muted:#64748b;
-      --line:#e2e8f0;--bg:#f8fafc;
+      --bg:#f5f1e9;--surface:#fdfbf6;--ink:#1c1a17;--muted:#8b8578;
+      --gold:#b68a3a;--gold-soft:#d9c49a;--line:#e6ddcb;
     }
     *{box-sizing:border-box;margin:0;padding:0}
     html{direction:ltr}
     body{
-      font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);
-      line-height:1.6;direction:ltr;text-align:left
+      font-family:'Montserrat',sans-serif;background:var(--bg);color:var(--ink);
+      line-height:1.7;direction:ltr;text-align:left;-webkit-font-smoothing:antialiased
     }
     .hero{
-      background:linear-gradient(135deg,#eef2ff 0%,#fdf6f0 50%,#f5f0ff 100%);
-      padding:3.5rem 1.25rem 2.5rem;text-align:center
+      text-align:center;padding:4.5rem 1.25rem 3rem;
+      background:linear-gradient(180deg,#f5f1e9 0%,#efe8da 100%)
     }
-    .hero .eyebrow{font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--purple)}
-    .hero h1{font-size:clamp(1.9rem,5vw,3rem);font-weight:800;letter-spacing:-.03em;margin:.4rem 0 .6rem}
-    .hero h1 span{
-      background:linear-gradient(135deg,#6366f1,#a78bfa);
-      -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent
+    .monogram{
+      width:72px;height:72px;margin:0 auto 1.4rem;border:1px solid var(--gold);
+      border-radius:50%;display:flex;align-items:center;justify-content:center;
+      font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:600;color:var(--ink);letter-spacing:.05em
     }
-    .hero p{color:var(--muted);max-width:640px;margin:0 auto;font-size:1rem}
-    .wrap{max-width:1080px;margin:0 auto;padding:2.5rem 1.25rem 3rem}
+    .kicker{
+      font-size:.72rem;font-weight:500;letter-spacing:.42em;text-transform:uppercase;color:var(--muted)
+    }
+    .rule{width:52px;height:1px;background:var(--gold);margin:1.5rem auto}
+    h1{
+      font-family:'Cormorant Garamond',serif;font-weight:500;
+      font-size:clamp(2.6rem,6vw,4.2rem);line-height:1.05;letter-spacing:.01em
+    }
+    h1 em{font-style:italic;font-weight:400;color:var(--gold)}
+    .hero p{color:var(--muted);max-width:560px;margin:1.1rem auto 0;font-size:.9rem;font-weight:300}
+    .wrap{max-width:1140px;margin:0 auto;padding:3rem 1.25rem 4rem}
     .grid{
-      display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
-      gap:1.25rem
+      display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+      gap:1.5rem
     }
     .card{
-      display:flex;flex-direction:column;gap:.35rem;background:#fff;border:1px solid var(--line);
-      border-radius:18px;padding:1.35rem 1.5rem;text-decoration:none;color:var(--ink);
-      box-shadow:0 1px 2px rgba(0,0,0,.03),0 4px 14px rgba(0,0,0,.04);
-      transition:transform .15s ease,box-shadow .15s ease,color .15s
+      display:flex;flex-direction:column;gap:.9rem;
+      background:var(--surface);border:1px solid var(--line);border-radius:2px;
+      padding:1.7rem 1.8rem 1.5rem;text-decoration:none;color:var(--ink);
+      transition:box-shadow .2s ease,transform .2s ease,border-color .2s ease
     }
-    a.card:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(99,102,241,.14);color:var(--indigo)}
-    .card .top{display:flex;align-items:center;justify-content:space-between;gap:.6rem}
-    .card .ico{font-size:1.7rem}
-    .card .meta{font-size:.72rem;font-weight:600;color:#94a3b8;white-space:nowrap}
-    .card h3{font-size:1.12rem;font-weight:700}
-    .card p{font-size:.88rem;color:var(--muted);flex:1;margin:0}
-    .card .go{font-size:.8rem;font-weight:700;color:var(--indigo)}
-    .card.soon{background:#f1f5f9;border-style:dashed;color:#94a3b8;cursor:default}
-    .card.soon h3{color:#94a3b8}
-    .card.soon p{color:#b6c0cf}
-    .card.soon .meta{color:#c3cbda}
-    footer{text-align:center;padding:1.6rem;color:#94a3b8;font-size:.85rem;border-top:1px solid var(--line)}
-    @media(max-width:640px){.grid{grid-template-columns:1fr}.hero{padding:2.6rem 1rem 2rem}}
+    a.card:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(60,48,20,.12);border-color:var(--gold-soft)}
+    .card .top{display:flex;align-items:baseline;justify-content:space-between;gap:.8rem}
+    .card .no{
+      font-family:'Cormorant Garamond',serif;font-size:.95rem;font-style:italic;color:var(--gold)
+    }
+    .card .meta{font-size:.62rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+    .card h3{
+      font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.55rem;line-height:1.2
+    }
+    .card p{font-size:.82rem;font-weight:300;color:var(--muted);flex:1}
+    .card .go{
+      font-size:.68rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--gold)
+    }
+    .card .go::after{content:' —';letter-spacing:0}
+    .card.soon{background:transparent;border-style:dashed;border-color:#d8cdb6;color:var(--muted);cursor:default}
+    .card.soon h3{color:var(--muted)}
+    .card.soon .go{color:var(--gold-soft)}
+    footer{
+      text-align:center;padding:2rem 1rem;border-top:1px solid var(--line);
+      font-size:.66rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)
+    }
+    footer .dot{color:var(--gold)}
+    @media(max-width:700px){.grid{grid-template-columns:1fr}.hero{padding:3.2rem 1rem 2.4rem}}
   </style>
 </head>
 <body>
   <header class="hero">
-    <div class="eyebrow">Projects · 项目</div>
-    <h1>CC's <span>Projects</span></h1>
-    <p>My personal project hub — every project I make gets its own page, linked from here.</p>
+    <div class="monogram">CC</div>
+    <div class="kicker">Portfolio · Projects</div>
+    <div class="rule"></div>
+    <h1>CC's <em>Projects</em></h1>
+    <p>une sélection de mes projets — a curated selection of my work.</p>
   </header>
 
   <main class="wrap">
     <div class="grid">
       <a class="card" href="https://CCSU007.github.io/CNPlan/" target="_blank" rel="noopener">
         <div class="top">
-          <div class="ico">🏮</div>
-          <span class="meta">🕒 Aug 13, 2026</span>
+          <span class="no">N° 01</span>
+          <span class="meta">Aug 13, 2026</span>
         </div>
         <h3>China Explorer · 中国旅行</h3>
-        <p>A 37-day winter trip through China — interactive map, 8 city guides, budget, prices &amp; packing.</p>
-        <span class="go">Open project →</span>
+        <p>A 37-day winter trip through China — interactive map, eight city guides, budget, prices &amp; packing.</p>
+        <span class="go">Open the project</span>
       </a>
 
       <div class="card soon">
         <div class="top">
-          <div class="ico">🛠️</div>
-          <span class="meta">Coming soon</span>
+          <span class="no">N° 02</span>
+          <span class="meta">À venir</span>
         </div>
-        <h3>Project 2</h3>
-        <p>Your next project lands here.</p>
+        <h3>Projet à venir</h3>
+        <p>Your next project will take its place here.</p>
+        <span class="go">Coming soon</span>
       </div>
       <div class="card soon">
         <div class="top">
-          <div class="ico">🛠️</div>
-          <span class="meta">Coming soon</span>
+          <span class="no">N° 03</span>
+          <span class="meta">À venir</span>
         </div>
-        <h3>Project 3</h3>
-        <p>Your next project lands here.</p>
+        <h3>Projet à venir</h3>
+        <p>Your next project will take its place here.</p>
+        <span class="go">Coming soon</span>
       </div>
       <div class="card soon">
         <div class="top">
-          <div class="ico">🛠️</div>
-          <span class="meta">Coming soon</span>
+          <span class="no">N° 04</span>
+          <span class="meta">À venir</span>
         </div>
-        <h3>Project 4</h3>
-        <p>Your next project lands here.</p>
+        <h3>Projet à venir</h3>
+        <p>Your next project will take its place here.</p>
+        <span class="go">Coming soon</span>
       </div>
     </div>
   </main>
 
-  <footer>Made by CC · CCSU007</footer>
+  <footer>© MMXXVI · CC <span class="dot">•</span> SU007</footer>
 </body>
 </html>
