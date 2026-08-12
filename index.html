@@ -35,19 +35,22 @@
       gap:1.25rem
     }
     .card{
-      display:flex;flex-direction:column;gap:.45rem;background:#fff;border:1px solid var(--line);
-      border-radius:18px;padding:1.4rem 1.5rem;text-decoration:none;color:var(--ink);
+      display:flex;flex-direction:column;gap:.35rem;background:#fff;border:1px solid var(--line);
+      border-radius:18px;padding:1.35rem 1.5rem;text-decoration:none;color:var(--ink);
       box-shadow:0 1px 2px rgba(0,0,0,.03),0 4px 14px rgba(0,0,0,.04);
       transition:transform .15s ease,box-shadow .15s ease,color .15s
     }
     a.card:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(99,102,241,.14);color:var(--indigo)}
-    .card .ico{font-size:1.9rem}
+    .card .top{display:flex;align-items:center;justify-content:space-between;gap:.6rem}
+    .card .ico{font-size:1.7rem}
+    .card .meta{font-size:.72rem;font-weight:600;color:#94a3b8;white-space:nowrap}
     .card h3{font-size:1.12rem;font-weight:700}
-    .card p{font-size:.88rem;color:var(--muted);flex:1}
+    .card p{font-size:.88rem;color:var(--muted);flex:1;margin:0}
     .card .go{font-size:.8rem;font-weight:700;color:var(--indigo)}
     .card.soon{background:#f1f5f9;border-style:dashed;color:#94a3b8;cursor:default}
     .card.soon h3{color:#94a3b8}
     .card.soon p{color:#b6c0cf}
+    .card.soon .meta{color:#c3cbda}
     footer{text-align:center;padding:1.6rem;color:#94a3b8;font-size:.85rem;border-top:1px solid var(--line)}
     @media(max-width:640px){.grid{grid-template-columns:1fr}.hero{padding:2.6rem 1rem 2rem}}
   </style>
@@ -62,26 +65,38 @@
   <main class="wrap">
     <div class="grid">
       <a class="card" href="https://CCSU007.github.io/CNPlan/" target="_blank" rel="noopener">
-        <div class="ico">🏮</div>
+        <div class="top">
+          <div class="ico">🏮</div>
+          <span class="meta">🕒 Aug 13, 2026</span>
+        </div>
         <h3>China Explorer · 中国旅行</h3>
         <p>A 37-day winter trip through China — interactive map, 8 city guides, budget, prices &amp; packing.</p>
         <span class="go">Open project →</span>
       </a>
 
       <div class="card soon">
-        <div class="ico">🛠️</div>
+        <div class="top">
+          <div class="ico">🛠️</div>
+          <span class="meta">Coming soon</span>
+        </div>
         <h3>Project 2</h3>
-        <p>Coming soon — add your next project here.</p>
+        <p>Your next project lands here.</p>
       </div>
       <div class="card soon">
-        <div class="ico">🛠️</div>
+        <div class="top">
+          <div class="ico">🛠️</div>
+          <span class="meta">Coming soon</span>
+        </div>
         <h3>Project 3</h3>
-        <p>Coming soon — add your next project here.</p>
+        <p>Your next project lands here.</p>
       </div>
       <div class="card soon">
-        <div class="ico">🛠️</div>
+        <div class="top">
+          <div class="ico">🛠️</div>
+          <span class="meta">Coming soon</span>
+        </div>
         <h3>Project 4</h3>
-        <p>Coming soon — add your next project here.</p>
+        <p>Your next project lands here.</p>
       </div>
     </div>
   </main>
