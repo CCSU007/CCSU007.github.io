@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CC's Projects · 项目集</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --indigo:#6366f1;--purple:#a78bfa;--ink:#0f172a;--muted:#64748b;
+      --line:#e2e8f0;--bg:#f8fafc;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{direction:ltr}
+    body{
+      font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);
+      line-height:1.6;direction:ltr;text-align:left
+    }
+    .hero{
+      background:linear-gradient(135deg,#eef2ff 0%,#fdf6f0 50%,#f5f0ff 100%);
+      padding:3.5rem 1.25rem 2.5rem;text-align:center
+    }
+    .hero .eyebrow{font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--purple)}
+    .hero h1{font-size:clamp(1.9rem,5vw,3rem);font-weight:800;letter-spacing:-.03em;margin:.4rem 0 .6rem}
+    .hero h1 span{
+      background:linear-gradient(135deg,#6366f1,#a78bfa);
+      -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent
+    }
+    .hero p{color:var(--muted);max-width:640px;margin:0 auto;font-size:1rem}
+    .wrap{max-width:1080px;margin:0 auto;padding:2.5rem 1.25rem 3rem}
+    .grid{
+      display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+      gap:1.25rem
+    }
+    .card{
+      display:flex;flex-direction:column;gap:.45rem;background:#fff;border:1px solid var(--line);
+      border-radius:18px;padding:1.4rem 1.5rem;text-decoration:none;color:var(--ink);
+      box-shadow:0 1px 2px rgba(0,0,0,.03),0 4px 14px rgba(0,0,0,.04);
+      transition:transform .15s ease,box-shadow .15s ease,color .15s
+    }
+    a.card:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(99,102,241,.14);color:var(--indigo)}
+    .card .ico{font-size:1.9rem}
+    .card h3{font-size:1.12rem;font-weight:700}
+    .card p{font-size:.88rem;color:var(--muted);flex:1}
+    .card .go{font-size:.8rem;font-weight:700;color:var(--indigo)}
+    .card.soon{background:#f1f5f9;border-style:dashed;color:#94a3b8;cursor:default}
+    .card.soon h3{color:#94a3b8}
+    .card.soon p{color:#b6c0cf}
+    footer{text-align:center;padding:1.6rem;color:#94a3b8;font-size:.85rem;border-top:1px solid var(--line)}
+    @media(max-width:640px){.grid{grid-template-columns:1fr}.hero{padding:2.6rem 1rem 2rem}}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="eyebrow">Projects · 项目</div>
+    <h1>CC's <span>Projects</span></h1>
+    <p>My personal project hub — every project I make gets its own page, linked from here.</p>
+  </header>
+
+  <main class="wrap">
+    <div class="grid">
+      <a class="card" href="https://CCSU007.github.io/CNPlan/" target="_blank" rel="noopener">
+        <div class="ico">🏮</div>
+        <h3>China Explorer · 中国旅行</h3>
+        <p>A 37-day winter trip through China — interactive map, 8 city guides, budget, prices &amp; packing.</p>
+        <span class="go">Open project →</span>
+      </a>
+
+      <div class="card soon">
+        <div class="ico">🛠️</div>
+        <h3>Project 2</h3>
+        <p>Coming soon — add your next project here.</p>
+      </div>
+      <div class="card soon">
+        <div class="ico">🛠️</div>
+        <h3>Project 3</h3>
+        <p>Coming soon — add your next project here.</p>
+      </div>
+      <div class="card soon">
+        <div class="ico">🛠️</div>
+        <h3>Project 4</h3>
+        <p>Coming soon — add your next project here.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>Made by CC · CCSU007</footer>
+</body>
+</html>
