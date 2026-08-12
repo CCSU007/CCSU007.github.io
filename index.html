@@ -23,7 +23,8 @@
     body{
       font-family:'Montserrat',sans-serif;background:var(--bg);color:var(--ink);
       line-height:1.7;direction:ltr;text-align:left;-webkit-font-smoothing:antialiased;
-      transition:background .35s ease,color .35s ease
+      transition:background .35s ease,color .35s ease;
+      height:100vh;height:100dvh;overflow:hidden;display:flex;flex-direction:column
     }
     /* Pearl sheen */
     .pearl{
@@ -39,7 +40,7 @@
     }
     .theme-btn:hover{transform:scale(1.08)}
     .hero{
-      text-align:center;padding:2.6rem 1.25rem 2.3rem;
+      flex:0 0 auto;text-align:center;padding:2.6rem 1.25rem 2.3rem;
       background:linear-gradient(180deg,var(--bg2) 0%,var(--bg) 100%)
     }
     .monogram{
@@ -83,6 +84,25 @@
     .grid{
       display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
       gap:1.25rem
+    }
+    /* Custom scroll: thin gold track + pearl knob (cards area only) */
+    .scroll-wrap{flex:1 1 auto;min-height:0;position:relative;overflow:hidden}
+    .cards-scroll{
+      height:100%;overflow-y:auto;overflow-x:hidden;
+      scrollbar-width:none;-ms-overflow-style:none
+    }
+    .cards-scroll::-webkit-scrollbar{display:none}
+    .pearl-track{
+      position:absolute;top:.5rem;right:.45rem;bottom:.5rem;width:2px;
+      background:var(--line);border-radius:99px;opacity:0;transition:opacity .3s
+    }
+    .pearl-track.show{opacity:1}
+    .pearl-knob{
+      position:absolute;top:0;left:50%;transform:translateX(-50%);
+      width:14px;height:14px;border-radius:50%;
+      background:radial-gradient(circle at 32% 28%,#fff 0%,#f6efe2 40%,#e6d7bb 75%,#cdb189 100%);
+      border:1px solid rgba(180,144,63,.55);
+      box-shadow:inset -3px -3px 6px rgba(120,95,60,.35),inset 2px 3px 5px rgba(255,255,255,.9),0 2px 5px rgba(120,95,60,.3)
     }
     .card{
       display:flex;flex-direction:column;gap:.9rem;
@@ -130,8 +150,10 @@
     <p>Projects I've designed and built — from research and planning to launch.</p>
   </header>
 
-  <main class="wrap">
-    <div class="grid">
+  <main class="scroll-wrap">
+    <div class="cards-scroll">
+      <div class="wrap">
+        <div class="grid">
       <a class="card" href="https://CCSU007.github.io/CNPlan/" target="_blank" rel="noopener">
         <div class="top">
           <span class="no">N° 01</span>
@@ -187,10 +209,12 @@
         <p>A new project will take its place here.</p>
         <span class="go">Coming soon</span>
       </div>
+        </div>
+      </div>
+      <footer>© MMXXVI · CC <span class="dot pearl"></span> SU007</footer>
     </div>
+    <div class="pearl-track"><span class="pearl-knob"></span></div>
   </main>
-
-  <footer>© MMXXVI · CC <span class="dot pearl"></span> SU007</footer>
 
   <script>
     (function () {
@@ -209,6 +233,22 @@
         setBtn();
       };
       setBtn();
+
+      // Custom pearl scrollbar for the cards area (shows only when needed)
+      var scrollEl = document.querySelector('.cards-scroll');
+      var track = document.querySelector('.pearl-track');
+      var knob = document.querySelector('.pearl-knob');
+      function updateScroll() {
+        if (!scrollEl || !track || !knob) return;
+        var max = scrollEl.scrollHeight - scrollEl.clientHeight;
+        if (max <= 4) { track.classList.remove('show'); return; }
+        track.classList.add('show');
+        var range = track.clientHeight - knob.offsetHeight;
+        knob.style.top = Math.round((scrollEl.scrollTop / max) * Math.max(0, range)) + 'px';
+      }
+      scrollEl.addEventListener('scroll', updateScroll);
+      window.addEventListener('resize', updateScroll);
+      updateScroll();
     })();
   </script>
 </body>
