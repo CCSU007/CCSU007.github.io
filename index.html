@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,39 +9,58 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     :root{
-      --bg:#0c0b0a;--cream:#efe9dc;--muted:#a49a86;
-      --gold:#c9a227;--gold-soft:#9a7d33;--line:#2a2418;
-      /* Diamond quilted leather (Lady Dior cannage / Chanel quilting) */
-      --quilt:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='42' height='42'%3E%3Cpath d='M21 3 L39 21 L21 39 L3 21 Z' fill='none' stroke='%23c9a227' stroke-opacity='0.12'/%3E%3C/svg%3E");
+      --bg:#f7f2e9;--bg2:#f1e9d8;--surface:#fffdf8;--ink:#2f2a22;
+      --muted:#978d7c;--gold:#b4903f;--gold-soft:#d8c49a;--pink:#e9c9c2;
+      --line:#e7ddcb;--shadow:rgba(120,96,50,.10);
+    }
+    html[data-theme="dark"]{
+      --bg:#14110c;--bg2:#1b1710;--surface:#1d1811;--ink:#efe6d6;
+      --muted:#a3967f;--gold:#c9a35a;--gold-soft:#7e6a3e;--pink:#8a5f57;
+      --line:#332b1e;--shadow:rgba(0,0,0,.55);
     }
     *{box-sizing:border-box;margin:0;padding:0}
     html{direction:ltr}
     body{
-      font-family:'Montserrat',sans-serif;background-color:var(--bg);background-image:var(--quilt);
-      color:var(--cream);line-height:1.7;direction:ltr;text-align:left;-webkit-font-smoothing:antialiased
+      font-family:'Montserrat',sans-serif;background:var(--bg);color:var(--ink);
+      line-height:1.7;direction:ltr;text-align:left;-webkit-font-smoothing:antialiased;
+      transition:background .35s ease,color .35s ease
     }
+    /* Pearl sheen */
+    .pearl{
+      background:radial-gradient(circle at 32% 28%,#fff,var(--pink) 52%,var(--gold-soft) 90%);
+      border:1px solid rgba(255,255,255,.75);border-radius:50%;
+      box-shadow:0 1px 3px rgba(0,0,0,.12),inset 0 0 6px rgba(255,255,255,.6)
+    }
+    .theme-btn{
+      position:fixed;top:16px;right:16px;z-index:50;width:42px;height:42px;
+      border-radius:50%;cursor:pointer;border:1px solid var(--gold);color:var(--gold);
+      background:var(--surface);font-size:1.05rem;display:flex;align-items:center;justify-content:center;
+      box-shadow:0 4px 14px var(--shadow);transition:transform .2s
+    }
+    .theme-btn:hover{transform:scale(1.08)}
     .hero{
-      text-align:center;padding:4.5rem 1.25rem 3.2rem;
-      background:linear-gradient(180deg,#13100b 0%,#0c0b0a 100%),var(--quilt);
-      border-bottom:1px solid var(--line)
+      text-align:center;padding:4.6rem 1.25rem 3.2rem;
+      background:linear-gradient(180deg,var(--bg2) 0%,var(--bg) 100%)
     }
     .monogram{
-      width:78px;height:78px;margin:0 auto 1.5rem;border:1px solid var(--gold);
-      border-radius:50%;display:flex;align-items:center;justify-content:center;
-      font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--gold);letter-spacing:.06em;
-      box-shadow:0 0 0 4px var(--bg),0 0 0 5px var(--gold-soft),inset 0 0 20px rgba(201,162,39,.18);
-      background-color:#12100b;background-image:var(--quilt)
+      width:80px;height:80px;margin:0 auto 1.5rem;display:flex;align-items:center;justify-content:center;
+      font-family:'Cormorant Garamond',serif;font-size:1.85rem;font-weight:600;color:var(--ink);letter-spacing:.05em;
+      background:radial-gradient(circle at 32% 26%,#fff 0%,#f6efe2 45%,var(--gold-soft) 92%);
+      border:1px solid var(--gold-soft);border-radius:50%;
+      box-shadow:0 8px 22px var(--shadow),inset 0 0 12px rgba(255,255,255,.65)
     }
     .kicker{
-      font-size:.68rem;font-weight:500;letter-spacing:.5em;text-transform:uppercase;color:var(--gold)
+      font-size:.7rem;font-weight:500;letter-spacing:.48em;text-transform:uppercase;color:var(--gold)
     }
-    .rule{width:64px;height:1px;background:var(--gold);margin:1.6rem auto;position:relative}
+    .rule{position:relative;width:72px;height:1px;background:var(--gold);margin:1.7rem auto}
     .rule::after{
-      content:'◆';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-      color:var(--gold);font-size:.5rem;background:var(--bg);padding:0 .45rem
+      content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+      width:11px;height:11px;border-radius:50%;
+      background:radial-gradient(circle at 32% 28%,#fff,var(--pink) 55%,var(--gold-soft));
+      box-shadow:0 0 7px rgba(180,144,63,.45);border:1px solid rgba(255,255,255,.7)
     }
     h1{
-      font-family:'Cormorant Garamond',serif;font-weight:500;color:var(--cream);
+      font-family:'Cormorant Garamond',serif;font-weight:500;
       font-size:clamp(2.6rem,6vw,4.2rem);line-height:1.05;letter-spacing:.01em
     }
     h1 em{font-style:italic;font-weight:400;color:var(--gold)}
@@ -52,52 +71,49 @@
       gap:1.5rem
     }
     .card{
-      position:relative;display:flex;flex-direction:column;gap:.9rem;
-      background:var(--quilt),linear-gradient(180deg,#1b1610,#120f0b);
-      border:1px solid var(--gold-soft);border-radius:3px;
-      padding:1.8rem 1.8rem 1.5rem;text-decoration:none;color:var(--cream);
+      display:flex;flex-direction:column;gap:.9rem;
+      background:var(--surface);border:1px solid var(--line);border-radius:14px;
+      padding:1.8rem 1.8rem 1.5rem;text-decoration:none;color:var(--ink);
+      box-shadow:0 2px 6px var(--shadow);
       transition:box-shadow .2s ease,transform .2s ease,border-color .2s ease
-    }
-    /* gold stitching along the top edge, like handbag trim */
-    .card::before{
-      content:'';position:absolute;top:6px;left:14%;right:14%;height:1px;opacity:.65;
-      background:repeating-linear-gradient(90deg,var(--gold) 0 6px,transparent 6px 12px)
     }
     a.card:hover{
       transform:translateY(-3px);border-color:var(--gold);
-      box-shadow:0 18px 44px rgba(0,0,0,.65),0 0 0 1px rgba(201,162,39,.4)
+      box-shadow:0 16px 34px var(--shadow)
     }
     .card .top{display:flex;align-items:baseline;justify-content:space-between;gap:.8rem}
     .card .no{
       font-family:'Cormorant Garamond',serif;font-size:1rem;font-style:italic;color:var(--gold)
     }
-    .card .meta{font-size:.6rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-soft)}
+    .card .meta{font-size:.6rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
     .card h3{
-      font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.55rem;line-height:1.2;color:var(--cream)
+      font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.55rem;line-height:1.2
     }
     .card p{font-size:.82rem;font-weight:300;color:var(--muted);flex:1}
     .card .go{
       font-size:.68rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--gold)
     }
     .card .go::after{content:' —';letter-spacing:0}
-    .card.soon{background:linear-gradient(180deg,#15120d,#0f0d0a);border-style:dashed;border-color:var(--gold-soft);color:var(--muted);cursor:default}
-    .card.soon h3{color:#8a8070}
+    .card.soon{background:transparent;border-style:dashed;border-color:var(--gold-soft);color:var(--muted);cursor:default;box-shadow:none}
+    .card.soon h3{color:var(--muted)}
     .card.soon .go{color:var(--gold-soft)}
     footer{
       text-align:center;padding:2rem 1rem;border-top:1px solid var(--line);
       font-size:.66rem;letter-spacing:.32em;text-transform:uppercase;color:var(--muted)
     }
-    footer .dot{color:var(--gold)}
-    @media(max-width:700px){.grid{grid-template-columns:1fr}.hero{padding:3.2rem 1rem 2.4rem}}
+    footer .dot{display:inline-block;width:8px;height:8px;vertical-align:middle;margin:0 .2rem}
+    @media(max-width:700px){.grid{grid-template-columns:1fr}.hero{padding:3.4rem 1rem 2.4rem}}
   </style>
 </head>
 <body>
+  <button id="theme-btn" class="theme-btn" onclick="toggleTheme()" title="Toggle day / night" aria-label="Toggle theme">☾</button>
+
   <header class="hero">
     <div class="monogram">CC</div>
-    <div class="kicker">Maison CC · Portfolio</div>
+    <div class="kicker">Personal Portfolio</div>
     <div class="rule"></div>
     <h1>CC's <em>Projects</em></h1>
-    <p>une sélection de mes projets — a curated selection of my work.</p>
+    <p>An elegant collection of my work — curated with care.</p>
   </header>
 
   <main class="wrap">
@@ -105,43 +121,81 @@
       <a class="card" href="https://CCSU007.github.io/CNPlan/" target="_blank" rel="noopener">
         <div class="top">
           <span class="no">N° 01</span>
-          <span class="meta">Aug 13, 2026</span>
+          <span class="meta">Updated · Aug 13, 2026</span>
         </div>
         <h3>China Explorer · 中国旅行</h3>
         <p>A 37-day winter trip through China — interactive map, eight city guides, budget, prices &amp; packing.</p>
-        <span class="go">Open the project</span>
+        <span class="go">View the project</span>
       </a>
 
       <div class="card soon">
         <div class="top">
           <span class="no">N° 02</span>
-          <span class="meta">À venir</span>
+          <span class="meta">Coming soon</span>
         </div>
-        <h3>Projet à venir</h3>
-        <p>Your next project will take its place here.</p>
+        <h3>Next Project</h3>
+        <p>A new project will take its place here.</p>
         <span class="go">Coming soon</span>
       </div>
       <div class="card soon">
         <div class="top">
           <span class="no">N° 03</span>
-          <span class="meta">À venir</span>
+          <span class="meta">Coming soon</span>
         </div>
-        <h3>Projet à venir</h3>
-        <p>Your next project will take its place here.</p>
+        <h3>Next Project</h3>
+        <p>A new project will take its place here.</p>
         <span class="go">Coming soon</span>
       </div>
       <div class="card soon">
         <div class="top">
           <span class="no">N° 04</span>
-          <span class="meta">À venir</span>
+          <span class="meta">Coming soon</span>
         </div>
-        <h3>Projet à venir</h3>
-        <p>Your next project will take its place here.</p>
+        <h3>Next Project</h3>
+        <p>A new project will take its place here.</p>
+        <span class="go">Coming soon</span>
+      </div>
+      <div class="card soon">
+        <div class="top">
+          <span class="no">N° 05</span>
+          <span class="meta">Coming soon</span>
+        </div>
+        <h3>Next Project</h3>
+        <p>A new project will take its place here.</p>
+        <span class="go">Coming soon</span>
+      </div>
+      <div class="card soon">
+        <div class="top">
+          <span class="no">N° 06</span>
+          <span class="meta">Coming soon</span>
+        </div>
+        <h3>Next Project</h3>
+        <p>A new project will take its place here.</p>
         <span class="go">Coming soon</span>
       </div>
     </div>
   </main>
 
-  <footer>© MMXXVI · CC <span class="dot">◆</span> SU007</footer>
+  <footer>© MMXXVI · CC <span class="dot pearl"></span> SU007</footer>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      // Default to the bright pearl (light) theme; respect a saved choice.
+      var saved = localStorage.getItem('cc-theme');
+      root.setAttribute('data-theme', saved || 'light');
+      function setBtn() {
+        var b = document.getElementById('theme-btn');
+        if (b) b.textContent = root.getAttribute('data-theme') === 'dark' ? '☀' : '☾';
+      }
+      window.toggleTheme = function () {
+        var dark = root.getAttribute('data-theme') === 'dark';
+        root.setAttribute('data-theme', dark ? 'light' : 'dark');
+        localStorage.setItem('cc-theme', dark ? 'light' : 'dark');
+        setBtn();
+      };
+      setBtn();
+    })();
+  </script>
 </body>
 </html>
